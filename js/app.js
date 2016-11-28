@@ -47,8 +47,8 @@ let scissorsIconButton = document.getElementById("ScissorsButton");
         whoWonTheBattle(computerOption,playerOption);
     });
 
-       //add an addEventListener for click on PaperButton Button
-    paperIconButton.addEventListener("click", function(){
+        //add an addEventListener for click on PaperButton Button
+        paperIconButton.addEventListener("click", function(){
 
         //The position of paper in userChoiceOption array is assign to playerChoice variable
         let playerChoice = userChoiceOptions[1];
@@ -60,7 +60,7 @@ let scissorsIconButton = document.getElementById("ScissorsButton");
         computerOption  = comuterchoice;
 
 
-      //Function whoWonTheBattle is called taking the two parameters to see who won
+        //Function whoWonTheBattle is called taking the two parameters to see who won
      whoWonTheBattle(computerOption,playerOption);
 
      
