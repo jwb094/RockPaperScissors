@@ -37,7 +37,7 @@ let computerResultMessage = "Computer wins";
         computeroption  = comuterchoice;
 
         //Function whoWonTheBattle is called taking the two parameters to see who won
-        whoWonTheBattle(computeroption,PlayerOption);
+        whoWonTheBattle(computeroption,playerOption);
     });
 
        //add an addEventListener for click on PaperButton Button
