@@ -21,9 +21,16 @@ let computerOption;
 let drawResultMessage = "It's a draw";
 let playerResultMessage = "Player wins";
 let computerResultMessage = "Computer wins";
-   
+
+
+//declare variables for rock paper and scissors button;
+let rockIconButton = document.getElementById("RockButton");
+let paperIconButton = document.getElementById("PaperButton");
+let scissorsIconButton = document.getElementById("ScissorsButton");
+
+
      //add an addEventListener for click for RockButton button
-     RockButton.addEventListener("click", function(){
+     rockIconButton.addEventListener("click", function(){
 
         //The posiotn rock in userChoiceOption array is assign to playerChoice variable
         let playerChoice = userChoiceOptions[0];
@@ -41,7 +48,7 @@ let computerResultMessage = "Computer wins";
     });
 
        //add an addEventListener for click on PaperButton Button
-    PaperButton.addEventListener("click", function(){
+    paperIconButton.addEventListener("click", function(){
 
         //The position of paper in userChoiceOption array is assign to playerChoice variable
         let playerChoice = userChoiceOptions[1];
@@ -61,7 +68,7 @@ let computerResultMessage = "Computer wins";
 
 
     //add an addEventListener for click on ScissorsButton button
-    ScissorsButton.addEventListener("click", function(){
+    scissorsIconButton.addEventListener("click", function(){
 
         //The position of scissors in userChoiceOption array is assign to playerChoice variable
         let playerChoice = userChoiceOptions[2];
