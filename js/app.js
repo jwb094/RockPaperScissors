@@ -14,7 +14,7 @@ let computerScoreCount = 0;
 
 //global variable for playerChoice & computerChoiceOption
 let playerOption;
-let computeroption;
+let computerOption;
 
 
 // message statements
@@ -34,10 +34,10 @@ let computerResultMessage = "Computer wins";
         // list.length give the MAth.random scope between 0 to 2.999 3 so it can only pick between 0,1 and 2
         let comuterchoice = computerChoiceOptions[Math.floor(Math.random() * computerChoiceOptions.length)];
         //the variable to passed to global variable Computeroption
-        computeroption  = comuterchoice;
+        computerOption  = comuterchoice;
 
         //Function whoWonTheBattle is called taking the two parameters to see who won
-        whoWonTheBattle(computeroption,playerOption);
+        whoWonTheBattle(computerOption,playerOption);
     });
 
        //add an addEventListener for click on PaperButton Button
@@ -50,11 +50,11 @@ let computerResultMessage = "Computer wins";
 
         let comuterchoice = computerChoiceOptions[Math.floor(Math.random() * computerChoiceOptions.length)];
         //the variable to passed to global variable Computeroption
-        computeroption  = comuterchoice;
+        computerOption  = comuterchoice;
 
 
       //Function whoWonTheBattle is called taking the two parameters to see who won
-     whoWonTheBattle(computeroption,playerOption);
+     whoWonTheBattle(computerOption,playerOption);
 
      
     });
@@ -70,9 +70,9 @@ let computerResultMessage = "Computer wins";
 
         let comuterchoice = computerChoiceOptions[Math.floor(Math.random() * computerChoiceOptions.length)];
         //the variable to passed to global variable Computeroption
-        computeroption  = comuterchoice;
+        computerOption  = comuterchoice;
         //Function whoWonTheBattle is called taking the two parameters to see who won
-        whoWonTheBattle(computeroption,playerOption);
+        whoWonTheBattle(computerOption,playerOption);
 
      });
 
