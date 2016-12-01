@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded' , function(){
-   
+
+//Matrix array - the possible result from ROCK PAPER SCISSORS  for Player and COmputer ; Row then Column
 let whoWonTheBattle = [
              //(C)Rock Paper Scissors
 /*(P)rock */ ['D','C','P'],
@@ -11,38 +12,50 @@ let whoWonTheBattle = [
 let playerScoreCount = 0;
 let computerScoreCount = 0;
 
-//global variable for playerChoice & computerChoiceOption
-let playerOption;
+//global variable for computerOption / playerOption / the result
 let computerOption;
+let playerOption;
 let result;
-//rock button
-$( ".rbutton" ).click(function() {
-    playerChoice = 0;
-    let computerchoice = [Math.floor(Math.random() * whoWonTheBattle.length)];    
-    computerOption  = computerchoice;
-    let result = whoWonTheBattle[playerChoice][computerOption];
-    TheWinner(result);
-});
-//paper button
-$( ".pbutton" ).click(function() {
-    playerChoice = 1;
-    let computerchoice = [Math.floor(Math.random() * whoWonTheBattle.length)];    
-    computerOption  = computerchoice;
-    let result = whoWonTheBattle[playerChoice][computerOption];
-    TheWinner(result);
-});
-//Scissors button
-$( ".sbutton" ).click(function() {
-    playerChoice = 2;//assign number 2 = Scissors to global variable playerChoice
-    let computerchoice = [Math.floor(Math.random() * whoWonTheBattle.length)];   //random generate choice for computer 
-    computerOption  = computerchoice; // passed to global variable computerOption
-    let result = whoWonTheBattle[playerChoice][computerOption];//the global variable cuse both players move to calculate the final position in the matrix
-    TheWinner(result);//function TheWinner is called to perform the tasks who won and who loss
-});
-function TheWinner (theOutcome){
-        this.theOutcome = result;
-        theOutcome === "P" ? $( "#resultmessage" ).html("Player wins") && $( "#Playercount").html(playerScoreCount++) ://if the Outcome is "P" = Player wins 
-        theOutcome === "C" ? $( "#resultmessage" ).html("Computer wins") && $( "#Computercount").html(computerScoreCount++): //if the Outcome is "C" = Computer wins 
-         $("#resultmessage" ).text("It's a draw!");    //if the Outcome is "D" = It's a draw 
+let theButtons = $('.move-buttons div');
+
+    //A function that find a id from the clicked  button in the group of button in  .move-buttons div
+    theButtons.each(function (i, button){
+        $(button).click(function (event){
+            playerOption = event.target.id;
+            getPositions();
+        });
+    });
+
+    // A function that get the Player & Computer' moves 
+    function getPositions(){
+        this.PlayerMove = playerOption;
+        this.ComputerMove = [Math.floor(Math.random() * whoWonTheBattle.length)];
+        getFinalPosition();
     }
+
+    // A function that calculate the final position in the Matrix 
+    function getFinalPosition(){
+        let result = whoWonTheBattle[PlayerMove][ComputerMove];
+        TheWinner(result);
+    }
+
+    //A function that perform actions if the Player wins
+    function PlayerOutput(){
+        $("#resultmessage" ).html("Player wins");
+        playerScoreCount++;
+        let theScore = document.getElementById("Playercount").innerHTML = playerScoreCount;
+    }
+    //A function that perform actions if the Computer wins
+    function ComputerOutput(){
+        $("#resultmessage").html("Computer wins");
+        computerScoreCount++;
+        let theScore = document.getElementById("Computercount").innerHTML = computerScoreCount;
+    }
+
+    // A function that calculate the Winner by the position in the matrix
+    function TheWinner (theOutcome){
+            //if Outcome = "P" Player wins    if Outcome = "C" Computer wins          
+            this.theOutcome = result; theOutcome === "P" ? PlayerOutput(): theOutcome === "C" ? ComputerOutput():
+            $("#resultmessage" ).text("It's a draw!");    
+        }
 });
