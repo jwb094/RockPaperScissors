@@ -1,87 +1,70 @@
 $(() => window.rps = new RPS());
 
-
 class RPS {
-    constructor(){
+    constructor() {
         //Matrix array - the possible result from ROCK PAPER SCISSORS  for Player and COmputer ; Row then Column
         this.whoWonTheBattle = [
-             //(C)Rock Paper Scissors
-            /*(P)rock */ ['D','C','P'],
-            /*Paper */   ['P','D','C'],
-            /*Scissors*/ ['C','P','D']
+                   //(C)Rock Paper Scissors
+            /*(P)rock */['D', 'C', 'P'],
+              /*Paper */['P', 'D', 'C'],
+            /*Scissors*/['C', 'P', 'D']
         ];
-        
-        //global variable for computerOption / playerOption / the result
+
+        //this will store the player and computer options
         this.playerOption;
         this.computerOption;
 
         //global variable for computerOption / playerOption / the result
-        this.playerScoreCount = 0;
-        this.computerScoreCount = 0;
         this.result;
 
         // the result message element from the front end
         this.message = $("#resultmessage");
-
+        this.playerScore = $("#playerCount");
+        this.computerScore = $("computerCount");
+        this.playerScoreCount  = 0;
+        this.computerScoreCount  = 0;
+        //console.log(playerScoreCount++);
         this.theButtons = $('.move-buttons div');
-        console.log(this.theButtons);  
+        //console.log(this.theButtons);
 
         // Run the object prototype function to add event listeners to the DOM elements above
         this.ButtonEventListener();
     }
-        //A function that find a id from the clicked  button in the group of button in  .move-buttons div
-        ButtonEventListener() {
-        this.theButtons.each((i, button) => $(button).click(this.play.bind(this)));
-  }
+    //A function that find a id from the clicked  button in the group of button in  .move-buttons div
+    ButtonEventListener() {
+        this.theButtons.each((i, button) => $(button).click(this.gameflow.bind(this)));
+    }
 
-  play() {
-    this.getPositions();
-    
-  }
-     getPositions(){
-         this.playerOption = event.target.id;
-         console.log(this.playerOption);
-//         this.PlayerMove = playerOption;
-        this.computerOption = [Math.floor(Math.random() * whoWonTheBattle.length)];
-//         getFinalPosition();
- }    
+    gameflow() {
+        this.getPositions();
+        this.getFinalMatrixPosition();
+        this.outcome();
+        this.ScoreUpdate();
+
+    }
+    getPositions() {
+        this.playerOption = event.target.id;
+        this.computerOption = [Math.floor(Math.random() * this.whoWonTheBattle.length)];
+    }
+    getFinalMatrixPosition(){
+        this.result = this.whoWonTheBattle[this.playerOption][this.computerOption];
+    }
+    outcome(){
+        this.theOutcome = this.result; 
+        this.theOutcome === "P" ? $(this.message).html("Player wins"): 
+        this.theOutcome === "C" ? $(this.message).html("Computer wins") : 
+            $(this.message).html("Its a draw");   
+    }
+    ScoreUpdate(){
+        this.winner = this.result;
+         this.winner === "P" ? $(this.playerScore).html(parseInt(this.playerScoreCount)+1):
+         this.winner === "C" ? $(this.computerScore).html(parseInt(this.computerScoreCount)+1):
+         $(this.message).html("Its a draw");   
+
+    }
+}
 
 
- }
-
-
-
-
-
-
-
-//     //A function that find a id from the clicked  button in the group of button in  .move-buttons div
-//     theButtons.each(function (i, button){
-//         $(button).click(function (event){
-//             playerOption = event.target.id;
-//             getPositions();
-//         });
-//     });
-
-//     // A function that get the Player & Computer' moves 
-//     function getPositions(){
-//         this.PlayerMove = playerOption;
-//         this.ComputerMove = [Math.floor(Math.random() * whoWonTheBattle.length)];
-//         getFinalPosition();
-//     }
-
-//     // A function that calculate the final position in the Matrix 
-//     function getFinalPosition(){
-//         let result = whoWonTheBattle[PlayerMove][ComputerMove];
-//         TheWinner(result);
-//     }
-
-//     //A function that perform actions if the Player wins
-//     function PlayerOutput(){
-//         $("#resultmessage" ).html("Player wins");
-//         playerScoreCount++;
-//         let theScore = document.getElementById("Playercount").innerHTML = playerScoreCount;
-//     }
 //     //A function that perform actions if the Computer wins
 //     function ComputerOutput(){
 //         $("#resultmessage").html("Computer wins");
@@ -89,10 +72,3 @@ class RPS {
 //         let theScore = document.getElementById("Computercount").innerHTML = computerScoreCount;
 //     }
 
-//     // A function that calculate the Winner by the position in the matrix
-//     function TheWinner (theOutcome){
-//             //if Outcome = "P" Player wins    if Outcome = "C" Computer wins          
-//             this.theOutcome = result; 
-//             theOutcome === "P" ? PlayerOutput(): theOutcome === "C" ? ComputerOutput():
-//             $("#resultmessage" ).text("It's a draw!");    
-//         }
