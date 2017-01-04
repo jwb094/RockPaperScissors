@@ -20,10 +20,9 @@ class RPS {
         // the result message element from the front end
         this.message = $("#resultmessage");
         this.playerScore = $("#playerCount");
-        this.computerScore = $("computerCount");
-        this.playerScoreCount  = 0;
-        this.computerScoreCount  = 0;
-        //console.log(playerScoreCount++);
+        this.computerScore = $("#computerCount");
+        this.playerScoreCount=0;
+        this.computerScoreCount=0;
         this.theButtons = $('.move-buttons div');
         //console.log(this.theButtons);
 
@@ -57,18 +56,9 @@ class RPS {
     }
     ScoreUpdate(){
         this.winner = this.result;
-         this.winner === "P" ? $(this.playerScore).html(parseInt(this.playerScoreCount)+1):
-         this.winner === "C" ? $(this.computerScore).html(parseInt(this.computerScoreCount)+1):
+         this.winner === "P" ? this.playerScore.html(this.playerScoreCount++):
+         this.winner === "C" ? this.computerScore.html(this.computerScoreCount++):
          $(this.message).html("Its a draw");   
 
     }
 }
-
-
-//     //A function that perform actions if the Computer wins
-//     function ComputerOutput(){
-//         $("#resultmessage").html("Computer wins");
-//         computerScoreCount++;
-//         let theScore = document.getElementById("Computercount").innerHTML = computerScoreCount;
-//     }
-
