@@ -1,7 +1,41 @@
 // when the window load it will create a new instance of RPS
 $(() => window.onload = new RPS());
 
+
 class RPS {
+     setUpTable(){
+        var imgRock = document.createElement('img');
+        imgRock.src = 'img/rock.png';
+        imgRock.id = 0;
+        imgRock.className = 'rbutton';
+        var divRock = document.createElement('div');
+        divRock.id = "rock";
+        document.getElementsByClassName('move-buttons')[0].appendChild(divRock);
+        divRock.appendChild(imgRock);
+
+
+        var imgPaper = document.createElement('img');
+        imgPaper.src = 'img/paper.svg';
+        imgPaper.id = 1;
+        imgPaper.className = 'pbutton';
+        var divPaper = document.createElement('div');
+        divPaper.id = "paper";
+        document.getElementsByClassName('move-buttons')[0].appendChild(divPaper);
+        divPaper.appendChild(imgPaper);
+
+
+        var imgScissors = document.createElement('img');
+        imgScissors.src = 'img/scissors.svg';
+        imgScissors.id = 2;
+        imgScissors.className = 'sbutton';
+        var divScissors = document.createElement('div');
+        divScissors.id = "Scissors";
+        divScissors.className = 'block';
+        document.getElementsByClassName('move-buttons')[0].appendChild(divScissors);
+        divScissors.appendChild(imgScissors);
+        
+ 
+    }
     constructor() {
         //Matrix array - the possible result from ROCK PAPER SCISSORS  for Player and COmputer ; Row then Column
         this.whoWonTheBattle = [
@@ -33,38 +67,7 @@ class RPS {
         // function for the button event listeners from the front end
         this.ButtonEventListener();
     }
-    setUpTable(){
-        var iDiv = document.createElement('div');
-        iDiv.id = "rock";
-        iDiv.className = 'block';
-        document.getElementsByClassName('move-buttons')[0].appendChild(iDiv);
-
-        iDiv.innerHTML = "I'm the first div";
-
-        var iDiv2 = document.createElement('div');
-        iDiv2.id = "paper";
-        iDiv2.className = 'block';
-        document.getElementsByClassName('move-buttons')[0].appendChild(iDiv2);
-
-        iDiv2.innerHTML = "I'm the second div";
-
-
-        var iDiv3 = document.createElement('div');
-        iDiv3.id = "Scissors";
-        iDiv3.className = 'block';
-        document.getElementsByClassName('move-buttons')[0].appendChild(iDiv3);
-
-        iDiv3.innerHTML = "I'm the third div";
-
-        // Now create and append to iDiv
-        //var innerDiv = document.createElement('div');
-        //innerDiv.className = 'block-2';
-
-        // The variable iDiv is still good... Just append to it.
-        //iDiv.appendChild(innerDiv);
-    //innerDiv.innerHTML = "I'm the inner div";
- 
-    }
+   
     
     
     //A function that find a id from the clicked  button in the group of button in  .move-buttons div
