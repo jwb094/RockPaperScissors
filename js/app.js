@@ -29,9 +29,44 @@ class RPS {
         //the div element containing the images
         this.theButtons = $('.move-buttons div');
 
+        this.setUpTable();
         // function for the button event listeners from the front end
         this.ButtonEventListener();
     }
+    setUpTable(){
+        var iDiv = document.createElement('div');
+        iDiv.id = "rock";
+        iDiv.className = 'block';
+        document.getElementsByClassName('move-buttons')[0].appendChild(iDiv);
+
+        iDiv.innerHTML = "I'm the first div";
+
+        var iDiv2 = document.createElement('div');
+        iDiv2.id = "paper";
+        iDiv2.className = 'block';
+        document.getElementsByClassName('move-buttons')[0].appendChild(iDiv2);
+
+        iDiv2.innerHTML = "I'm the second div";
+
+
+        var iDiv3 = document.createElement('div');
+        iDiv3.id = "Scissors";
+        iDiv3.className = 'block';
+        document.getElementsByClassName('move-buttons')[0].appendChild(iDiv3);
+
+        iDiv3.innerHTML = "I'm the third div";
+
+        // Now create and append to iDiv
+        //var innerDiv = document.createElement('div');
+        //innerDiv.className = 'block-2';
+
+        // The variable iDiv is still good... Just append to it.
+        //iDiv.appendChild(innerDiv);
+    //innerDiv.innerHTML = "I'm the inner div";
+ 
+    }
+    
+    
     //A function that find a id from the clicked  button in the group of button in  .move-buttons div
     ButtonEventListener() {
         this.theButtons.each((i, button) => $(button).click(this.gameflow.bind(this)));
