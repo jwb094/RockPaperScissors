@@ -1,17 +1,16 @@
 // when the window load it will create a new instance of RPS
 $(() => window.onload = new RPS());
 
-
 class RPS {
     constructor() {
         this.setUpTable();
 
-        //Matrix array - the possible result from ROCK PAPER SCISSORS  for Player and COmputer ; Row then Column
+        //Matrix array - the possible result from ROCK PAPER SCISSORS  for Player and Computer ; Row then Column
         this.whoWonTheBattle = [
-                   //(C)Rock Paper Scissors
-            /*(P)rock */['D', 'C', 'P'],
-              /*Paper */['P', 'D', 'C'],
-            /*Scissors*/['C', 'P', 'D']
+                      //Rock Paper Scissors   /*Computer*/ 
+              /*rock */['D', 'C', 'P'],
+/*PLAYER*/   /*Paper */['P', 'D', 'C'],
+           /*Scissors*/['C', 'P', 'D']
         ];
 
         //this will store the player and computer options
