@@ -4,6 +4,8 @@ $(() => window.onload = new RPS());
 
 class RPS {
     constructor() {
+        this.setUpTable();
+        
         //Matrix array - the possible result from ROCK PAPER SCISSORS  for Player and COmputer ; Row then Column
         this.whoWonTheBattle = [
                    //(C)Rock Paper Scissors
@@ -30,7 +32,7 @@ class RPS {
         //the div element containing the images
         this.theButtons = $('.move-buttons div');
 
-        this.setUpTable();
+        
         // function for the button event listeners from the front end
         this.ButtonEventListener();
     }
@@ -70,7 +72,7 @@ class RPS {
     
     //A function that find a id from the clicked  button in the group of button in  .move-buttons div
     ButtonEventListener() {
-        this.theButtons.each((i, button) => $(button).on('click',this.gameflow.bind(this)));
+        this.theButtons.each((i, button) => $(button).click(this.gameflow.bind(this)));
         //console.log(this.theButtons);
  }
     //the game function flow how the game is played
