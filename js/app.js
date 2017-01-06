@@ -5,7 +5,7 @@ $(() => window.onload = new RPS());
 class RPS {
     constructor() {
         this.setUpTable();
-        
+
         //Matrix array - the possible result from ROCK PAPER SCISSORS  for Player and COmputer ; Row then Column
         this.whoWonTheBattle = [
                    //(C)Rock Paper Scissors
@@ -36,7 +36,8 @@ class RPS {
         // function for the button event listeners from the front end
         this.ButtonEventListener();
     }
-         setUpTable(){
+        // function setup up the GUI at the from displays the imgs in their separate divs 
+        setUpTable(){
         var imgRock = document.createElement('img');
         imgRock.src = 'img/rock.png';
         imgRock.id = 0;
@@ -65,8 +66,6 @@ class RPS {
         divScissors.id = "Scissors";
         document.getElementsByClassName('move-buttons')[0].appendChild(divScissors);
         divScissors.appendChild(imgScissors);
-        
- 
     }
     
     
