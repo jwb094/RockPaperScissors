@@ -3,39 +3,6 @@ $(() => window.onload = new RPS());
 
 
 class RPS {
-     setUpTable(){
-        var imgRock = document.createElement('img');
-        imgRock.src = 'img/rock.png';
-        imgRock.id = 0;
-        imgRock.className = 'rbutton';
-        var divRock = document.createElement('div');
-        divRock.id = "rock";
-        document.getElementsByClassName('move-buttons')[0].appendChild(divRock);
-        divRock.appendChild(imgRock);
-
-
-        var imgPaper = document.createElement('img');
-        imgPaper.src = 'img/paper.svg';
-        imgPaper.id = 1;
-        imgPaper.className = 'pbutton';
-        var divPaper = document.createElement('div');
-        divPaper.id = "paper";
-        document.getElementsByClassName('move-buttons')[0].appendChild(divPaper);
-        divPaper.appendChild(imgPaper);
-
-
-        var imgScissors = document.createElement('img');
-        imgScissors.src = 'img/scissors.svg';
-        imgScissors.id = 2;
-        imgScissors.className = 'sbutton';
-        var divScissors = document.createElement('div');
-        divScissors.id = "Scissors";
-        divScissors.className = 'block';
-        document.getElementsByClassName('move-buttons')[0].appendChild(divScissors);
-        divScissors.appendChild(imgScissors);
-        
- 
-    }
     constructor() {
         //Matrix array - the possible result from ROCK PAPER SCISSORS  for Player and COmputer ; Row then Column
         this.whoWonTheBattle = [
@@ -67,13 +34,45 @@ class RPS {
         // function for the button event listeners from the front end
         this.ButtonEventListener();
     }
-   
+         setUpTable(){
+        var imgRock = document.createElement('img');
+        imgRock.src = 'img/rock.png';
+        imgRock.id = 0;
+        imgRock.className = 'rbutton';
+        var divRock = document.createElement('div');
+        divRock.id = "rock";
+        document.getElementsByClassName('move-buttons')[0].appendChild(divRock);
+        divRock.appendChild(imgRock);
+
+
+        var imgPaper = document.createElement('img');
+        imgPaper.src = "img/paper.svg";
+        imgPaper.id = 1;
+        imgPaper.className = 'pbutton';
+        var divPaper = document.createElement('div');
+        divPaper.id = "paper";
+        document.getElementsByClassName('move-buttons')[0].appendChild(divPaper);
+        divPaper.appendChild(imgPaper);
+
+
+        var imgScissors = document.createElement('img');
+        imgScissors.src = 'img/scissors.svg';
+        imgScissors.id = 2;
+        imgScissors.className = 'sbutton';
+        var divScissors = document.createElement('div');
+        divScissors.id = "Scissors";
+        document.getElementsByClassName('move-buttons')[0].appendChild(divScissors);
+        divScissors.appendChild(imgScissors);
+        
+ 
+    }
     
     
     //A function that find a id from the clicked  button in the group of button in  .move-buttons div
     ButtonEventListener() {
-        this.theButtons.each((i, button) => $(button).click(this.gameflow.bind(this)));
-    }
+        this.theButtons.each((i, button) => $(button).on('click',this.gameflow.bind(this)));
+        //console.log(this.theButtons);
+ }
     //the game function flow how the game is played
     gameflow() {
         this.getPositions();
