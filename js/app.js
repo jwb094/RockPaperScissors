@@ -10,7 +10,6 @@ class RPS {
               /*Paper */['P', 'D', 'C'],
             /*Scissors*/['C', 'P', 'D']
         ];
-
         //this will store the player and computer options
         this.playerOption;
         this.computerOption;
